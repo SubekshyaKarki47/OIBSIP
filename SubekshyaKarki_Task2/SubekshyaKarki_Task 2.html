@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subekshya Karki — Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --amber: #E8A838;
+            --amber-dark: #C47D1A;
+            --text: #1a1a1a;
+            --text-light: #666;
+            --bg: #fff;
+            --bg-soft: #fafafa;
+            --border: #e5e5e5;
+        }
+
+        body {
+            font-family: Georgia, serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.7;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        /* ── HEADER ── */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: var(--bg);
+            z-index: 100;
+        }
+
+        .logo { font-size: 1.2rem; font-weight: bold; letter-spacing: 0.5px; }
+
+        nav { display: flex; gap: 1.8rem; align-items: center; }
+
+        nav a {
+            font-family: Arial, sans-serif;
+            font-size: 0.88rem;
+            color: var(--text-light);
+            transition: color 0.2s;
+        }
+
+        nav a:hover { color: var(--amber-dark); }
+
+        .cv-btn {
+            font-family: Arial, sans-serif;
+            font-size: 0.85rem;
+            font-weight: bold;
+            background: var(--amber);
+            color: #fff;
+            padding: 0.45rem 1.1rem;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .cv-btn:hover { background: var(--amber-dark); }
+
+        /* ── HERO ── */
+        .hero {
+            padding: 5rem 5% 4rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-avatar {
+            width: 88px; height: 88px;
+            border-radius: 50%;
+            border: 2px solid var(--amber);
+            background: #fff8ec;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--amber-dark);
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+            font-family: Arial, sans-serif;
+        }
+
+        .hero-label {
+            font-family: Arial, sans-serif;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            line-height: 1.1;
+            margin-bottom: 0;
+        }
+
+        .hero h1 span { color: var(--amber-dark); }
+
+        .hero-divider {
+            width: 40px;
+            height: 1.5px;
+            background: var(--amber);
+            margin: 1.2rem auto;
+        }
+
+        .hero p {
+            font-family: Arial, sans-serif;
+            font-size: 1rem;
+            color: var(--text-light);
+            max-width: 520px;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; justify-content: center; }
+
+        .btn {
+            font-family: Arial, sans-serif;
+            font-size: 0.9rem;
+            font-weight: bold;
+            padding: 0.7rem 1.6rem;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+        }
+
+        .btn-primary { background: var(--amber); color: #fff; }
+        .btn-primary:hover { background: var(--amber-dark); }
+
+        .btn-outline { border: 1.5px solid var(--border); color: var(--text-light); }
+        .btn-outline:hover { border-color: var(--amber); color: var(--amber-dark); }
+
+        .socials { display: flex; gap: 0.8rem; justify-content: center; }
+
+        .socials a {
+            width: 38px; height: 38px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+
+        .socials a:hover { border-color: var(--amber); color: var(--amber-dark); }
+
+        /* ── DIVIDER ── */
+        hr { border: none; border-top: 1px solid var(--border); margin: 0 5%; }
+
+        /* ── SECTION ── */
+        section { padding: 4rem 5%; }
+
+        .section-label {
+            font-family: Arial, sans-serif;
+            font-size: 0.75rem;
+            color: var(--amber-dark);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        section h2 { font-size: 2rem; margin-bottom: 0.5rem; }
+
+        section > p {
+            font-family: Arial, sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+        }
+
+        /* ── PROJECTS ── */
+        .projects-section { background: var(--bg-soft); padding: 4rem 0; }
+        .projects-section > div { padding: 4rem 5%; }
+
+        .filter-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+
+        .filter-btn {
+            font-family: Arial, sans-serif;
+            font-size: 0.82rem;
+            padding: 0.4rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: #fff;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: all 0.2s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--amber);
+            border-color: var(--amber);
+            color: #fff;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .pj-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.4rem;
+            transition: box-shadow 0.2s, border-color 0.2s;
+        }
+
+        .pj-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.07); border-color: var(--amber); }
+
+        .pj-num {
+            font-family: Arial, sans-serif;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: var(--amber-dark);
+            letter-spacing: 1px;
+            margin-bottom: 0.7rem;
+        }
+
+        .pj-icon {
+            width: 40px; height: 40px;
+            background: #fff8ec;
+            border: 1px solid #ffe9b8;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--amber-dark);
+            font-size: 1.1rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .pj-card h3 { font-size: 1rem; margin-bottom: 0.6rem; }
+
+        .pj-card p {
+            font-family: Arial, sans-serif;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .pj-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+
+        .pj-tag {
+            font-family: Arial, sans-serif;
+            font-size: 0.75rem;
+            background: #fff8ec;
+            color: var(--amber-dark);
+            border: 1px solid #ffe0a0;
+            padding: 0.2rem 0.6rem;
+            border-radius: 3px;
+        }
+
+        .pj-link {
+            font-family: Arial, sans-serif;
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--amber-dark);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .pj-link:hover { text-decoration: underline; }
+
+        /* ── EXPERIENCE ── */
+        .exp-list { display: flex; flex-direction: column; gap: 1.2rem; }
+
+        .exp-card {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.4rem 1.6rem;
+            display: flex;
+            gap: 1.2rem;
+            align-items: flex-start;
+            transition: border-color 0.2s;
+        }
+
+        .exp-card:hover { border-color: var(--amber); }
+
+        .exp-icon {
+            width: 44px; height: 44px; min-width: 44px;
+            background: var(--amber);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.1rem;
+        }
+
+        .exp-type {
+            font-family: Arial, sans-serif;
+            font-size: 0.72rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 0.2rem 0.7rem;
+            border-radius: 3px;
+            margin-right: 0.5rem;
+        }
+
+        .exp-type.internship { background: #e8f5e9; color: #2e7d32; }
+        .exp-type.conference { background: #ede7f6; color: #4527a0; }
+        .exp-type.workshop   { background: #fff8ec; color: var(--amber-dark); }
+
+        .exp-date {
+            font-family: Arial, sans-serif;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .exp-body h3 { font-size: 1rem; margin: 0.4rem 0 0.2rem; }
+
+        .exp-org {
+            font-family: Arial, sans-serif;
+            font-size: 0.85rem;
+            color: var(--amber-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .exp-body p {
+            font-family: Arial, sans-serif;
+            font-size: 0.88rem;
+            color: var(--text-light);
+            margin-bottom: 0.8rem;
+        }
+
+        .exp-link {
+            font-family: Arial, sans-serif;
+            font-size: 0.82rem;
+            font-weight: bold;
+            color: var(--amber-dark);
+            border: 1px solid var(--amber);
+            padding: 0.3rem 0.8rem;
+            border-radius: 3px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.2s;
+        }
+
+        .exp-link:hover { background: var(--amber); color: #fff; }
+
+        /* ── SKILLS ── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .sk-card {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.3rem;
+        }
+
+        .sk-card h3 {
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .sk-card h3 i { color: var(--amber); }
+
+        .sk-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+        .sk-pill {
+            font-family: Arial, sans-serif;
+            font-size: 0.78rem;
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+            padding: 0.25rem 0.65rem;
+            border-radius: 3px;
+            color: var(--text);
+        }
+
+        /* ── ABOUT ── */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-stats { display: flex; flex-direction: column; gap: 1rem; }
+
+        .stat-box {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.2rem;
+            text-align: center;
+        }
+
+        .stat-box strong {
+            display: block;
+            font-size: 2rem;
+            color: var(--amber-dark);
+        }
+
+        .stat-box span {
+            font-family: Arial, sans-serif;
+            font-size: 0.82rem;
+            color: var(--text-light);
+        }
+
+        .about-text h3 {
+            font-size: 0.8rem;
+            font-family: Arial, sans-serif;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--amber-dark);
+            margin: 1.2rem 0 0.4rem;
+        }
+
+        .about-text h3:first-child { margin-top: 0; }
+
+        .about-text p {
+            font-family: Arial, sans-serif;
+            font-size: 0.92rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* ── CONTACT ── */
+        .contact-section {
+            background: #1a1a1a;
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .contact-section .section-label { color: var(--amber); }
+        .contact-section h2 { color: #fff; font-size: 2.2rem; margin-bottom: 0.8rem; }
+
+        .contact-section p {
+            font-family: Arial, sans-serif;
+            color: #999;
+            font-size: 0.95rem;
+            max-width: 480px;
+            margin: 0 auto 2rem;
+        }
+
+        .contact-links { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; }
+
+        .contact-link {
+            font-family: Arial, sans-serif;
+            font-size: 0.88rem;
+            font-weight: bold;
+            padding: 0.7rem 1.4rem;
+            border: 1px solid #333;
+            color: #ccc;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+        }
+
+        .contact-link:hover { border-color: var(--amber); color: var(--amber); }
+
+        /* ── FOOTER ── */
+        footer {
+            background: #111;
+            color: #555;
+            text-align: center;
+            padding: 1.2rem;
+            font-family: Arial, sans-serif;
+            font-size: 0.82rem;
+        }
+
+        footer span { color: var(--amber); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 2.2rem; }
+            nav { gap: 1rem; }
+            nav a { display: none; }
+            .about-grid { grid-template-columns: 1fr; }
+            .about-stats { flex-direction: row; }
+        }
+
+        @media (max-width: 480px) {
+            header { flex-direction: column; gap: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="logo">Subekshya</div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="Subekshya_Karki_CV.jpg" download class="cv-btn">
+            <i class="fas fa-download"></i> Download CV
+        </a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-avatar">SK</div>
+    <div class="hero-label">Computer Engineering Student &nbsp;·&nbsp; Nepal</div>
+    <h1>Subekshya <span>Karki</span></h1>
+    <div class="hero-divider"></div>
+    <p>A passionate Computer Engineering student with skills in Frontend Development, UX Design, and Web Development — building simple, user-friendly digital experiences.</p>
+    <div class="btn-row">
+        <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Get In Touch</a>
+        <a href="#projects" class="btn btn-outline"><i class="fas fa-folder-open"></i> View My Work</a>
+    </div>
+    <div class="socials">
+        <a href="https://www.facebook.com/subekshya.karki.148" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.linkedin.com/in/subekshya-karki-1b61b032a/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/subekshya_karkii/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://github.com/shronal" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+</section>
+
+<hr>
+
+<!-- PROJECTS -->
+<div class="projects-section" id="projects">
+<div>
+    <div class="section-label">Projects</div>
+    <h2>My Projects</h2>
+    <p>A showcase of my technical projects and creative solutions</p>
+
+    <div class="filter-row">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="desktop">Desktop</button>
+        <button class="filter-btn" data-filter="dsa">DSA</button>
+        <button class="filter-btn" data-filter="other">Other</button>
+    </div>
+
+    <div class="projects-grid">
+        <div class="pj-card" data-category="web">
+            <div class="pj-num">01</div>
+            <div class="pj-icon"><i class="fas fa-search"></i></div>
+            <h3>The Retrieval Hub</h3>
+            <p>A Lost and Found web application that lets users post, search, and claim lost or found items.</p>
+            <div class="pj-tags">
+                <span class="pj-tag">Django</span>
+                <span class="pj-tag">PostgreSQL</span>
+                <span class="pj-tag">HTML/CSS</span>
+            </div>
+            <a href="https://github.com/SubekshyaKarki47/Retrieval-lost-and-found-" target="_blank" class="pj-link">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="pj-card" data-category="desktop">
+            <div class="pj-num">02</div>
+            <div class="pj-icon"><i class="fas fa-car"></i></div>
+            <h3>Hotel Vehicle Reservation</h3>
+            <p>A C++ graphics-based reservation system for hotel vehicle booking with an interactive interface.</p>
+            <div class="pj-tags">
+                <span class="pj-tag">C++</span>
+                <span class="pj-tag">Graphics.h</span>
+                <span class="pj-tag">DSA</span>
+            </div>
+            <a href="https://github.com/SubekshyaKarki47/HotelReservation" target="_blank" class="pj-link">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="pj-card" data-category="dsa">
+            <div class="pj-num">03</div>
+            <div class="pj-icon"><i class="fas fa-tree"></i></div>
+            <h3>Tree Traversal Visualizer</h3>
+            <p>An interactive visualizer demonstrating binary tree traversals through animated graphics.</p>
+            <div class="pj-tags">
+                <span class="pj-tag">C++</span>
+                <span class="pj-tag">Graphics</span>
+                <span class="pj-tag">DSA</span>
+            </div>
+            <a href="https://github.com/SubekshyaKarki47/Tree_traversal/tree/main" target="_blank" class="pj-link">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="pj-card" data-category="other">
+            <div class="pj-num">04</div>
+            <div class="pj-icon"><i class="fas fa-book-open"></i></div>
+            <h3>Book Exchange Platform</h3>
+            <p>A Django platform for students to donate, borrow, and exchange books within the community.</p>
+            <div class="pj-tags">
+                <span class="pj-tag">Django</span>
+                <span class="pj-tag">SQLite</span>
+                <span class="pj-tag">Bootstrap</span>
+            </div>
+            <a href="#" class="pj-link">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="pj-card" data-category="web">
+            <div class="pj-num">05</div>
+            <div class="pj-icon"><i class="fas fa-calendar-alt"></i></div>
+            <h3>KhEC Event Flow</h3>
+            <p>An Event Management System for college events with admin, organizer, and user roles.</p>
+            <div class="pj-tags">
+                <span class="pj-tag">Django</span>
+                <span class="pj-tag">PostgreSQL</span>
+                <span class="pj-tag">Bootstrap</span>
+            </div>
+            <a href="https://github.com/shronal/khec_ems/tree/subekshya" class="pj-link">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</div>
+</div>
+
+<hr>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+    <div class="section-label">Journey</div>
+    <h2>Experience & Participation</h2>
+    <p>Internships, conferences, and workshops that shaped my growth</p>
+
+    <div class="exp-list">
+        <div class="exp-card">
+            <div class="exp-icon"><i class="fas fa-globe"></i></div>
+            <div class="exp-body">
+                <div>
+                    <span class="exp-type internship">Internship</span>
+                    <span class="exp-date">90 Hours</span>
+                </div>
+                <h3>Global Nobel Internship</h3>
+                <div class="exp-org"><i class="fas fa-building"></i> Global Nobel</div>
+                <p>Completed a rigorous 90-hour internship program, gaining hands-on experience in a global learning environment.</p>
+                <a href="global_nobel.pdf" target="_blank" class="exp-link"><i class="fas fa-certificate"></i> View Certificate</a>
+            </div>
+        </div>
+
+        <div class="exp-card">
+            <div class="exp-icon"><i class="fas fa-microphone-alt"></i></div>
+            <div class="exp-body">
+                <div>
+                    <span class="exp-type conference">Conference</span>
+                    <span class="exp-date">2026</span>
+                </div>
+                <h3>Khwopa CEEL 2026</h3>
+                <div class="exp-org"><i class="fas fa-university"></i> Khwopa Engineering College</div>
+                <p>Participated in the National Conference on Computer, Electrical, Electronics and Communication Engineering.</p>
+                <a href="#" class="exp-link"><i class="fas fa-image"></i> View Participation</a>
+            </div>
+        </div>
+
+        <div class="exp-card">
+            <div class="exp-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+            <div class="exp-body">
+                <div>
+                    <span class="exp-type workshop">Workshop</span>
+                    <span class="exp-date">College</span>
+                </div>
+                <h3>College Workshop</h3>
+                <div class="exp-org"><i class="fas fa-university"></i> Khwopa Engineering College</div>
+                <p>Attended a workshop enhancing practical knowledge and technical skills beyond the regular curriculum.</p>
+                <a href="certificate.pdf" class="exp-link"><i class="fas fa-image"></i> View Photos</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr>
+
+<!-- SKILLS -->
+<section id="skills">
+    <div class="section-label">Expertise</div>
+    <h2>Skills & Technologies</h2>
+    <p>Technologies and tools I use to bring ideas to life</p>
+
+    <div class="skills-grid">
+        <div class="sk-card">
+            <h3><i class="fas fa-desktop"></i> Frontend</h3>
+            <div class="sk-pills">
+                <span class="sk-pill">HTML5</span>
+                <span class="sk-pill">CSS3</span>
+                <span class="sk-pill">JavaScript</span>
+                <span class="sk-pill">Bootstrap</span>
+                <span class="sk-pill">Responsive Design</span>
+                <span class="sk-pill">UI/UX</span>
+            </div>
+        </div>
+
+        <div class="sk-card">
+            <h3><i class="fas fa-server"></i> Backend</h3>
+            <div class="sk-pills">
+                <span class="sk-pill">Django</span>
+                <span class="sk-pill">Python</span>
+                <span class="sk-pill">PostgreSQL</span>
+                <span class="sk-pill">SQLite</span>
+                <span class="sk-pill">REST APIs</span>
+            </div>
+        </div>
+
+        <div class="sk-card">
+            <h3><i class="fas fa-code"></i> Languages</h3>
+            <div class="sk-pills">
+                <span class="sk-pill">C++</span>
+                <span class="sk-pill">Python</span>
+                <span class="sk-pill">JavaScript</span>
+                <span class="sk-pill">Data Structures</span>
+                <span class="sk-pill">Algorithms</span>
+            </div>
+        </div>
+
+        <div class="sk-card">
+            <h3><i class="fas fa-tools"></i> Tools</h3>
+            <div class="sk-pills">
+                <span class="sk-pill">Git & GitHub</span>
+                <span class="sk-pill">VS Code</span>
+                <span class="sk-pill">Dev C++</span>
+                <span class="sk-pill">Graphics.h</span>
+                <span class="sk-pill">Command Line</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="section-label">My Story</div>
+    <h2>About Me</h2>
+
+    <div class="about-grid">
+        <div class="about-stats">
+            <div class="stat-box">
+                <strong>5+</strong>
+                <span>Projects Built</span>
+            </div>
+            <div class="stat-box">
+                <strong>3+</strong>
+                <span>Years Learning</span>
+            </div>
+        </div>
+
+        <div class="about-text">
+            <h3>Who Am I?</h3>
+            <p>I'm a passionate computer engineering student from Nepal, currently pursuing my Bachelor's degree at Khwopa Engineering College. I have a strong interest in web development, UI/UX design, and software engineering.</p>
+
+            <h3>My Journey</h3>
+            <p>Over the past few years, I've worked on various projects ranging from C++ desktop applications to full-stack Django web applications. I believe in continuous learning and staying updated with the latest technologies.</p>
+
+            <h3>What Drives Me</h3>
+            <p>I'm driven by the passion to create meaningful digital solutions that solve real-world problems. I enjoy collaborating with others and contributing to projects that benefit the community.</p>
+
+            <br>
+            <a href="#contact" class="btn btn-primary">Let's Connect <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+    <div class="section-label">Get In Touch</div>
+    <h2>Let's Work Together</h2>
+    <p>I'm always interested in hearing about new projects and opportunities. Feel free to reach out!</p>
+    <div class="contact-links">
+        <a href="https://wa.me/9779864265886" target="_blank" class="contact-link"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="mailto:subekshyakarki085@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> Email</a>
+        <a href="https://www.linkedin.com/in/subekshya-karki-1b61b032a/" target="_blank" class="contact-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/SubekshyaKarki47" target="_blank" class="contact-link"><i class="fab fa-github"></i> GitHub</a>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2025 <span>Subekshya Karki</span>. All rights reserved.</p>
+</footer>
+
+<script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            e.preventDefault();
+            const t = document.querySelector(a.getAttribute('href'));
+            if (t) t.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+    // Project filters
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const f = btn.dataset.filter;
+            document.querySelectorAll('.pj-card').forEach(card => {
+                const show = f === 'all' || card.dataset.category === f;
+                card.style.opacity = show ? '1' : '0.3';
+                card.style.pointerEvents = show ? 'auto' : 'none';
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
